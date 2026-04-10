@@ -94,6 +94,13 @@ body {
   background-color: var(--marble-warm);
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 img {
@@ -542,10 +549,11 @@ p {
 
 .hero-stats {
   display: flex;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   margin-top: var(--space-3xl);
   padding-top: var(--space-2xl);
   border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
 }
 
 .hero-stat {
