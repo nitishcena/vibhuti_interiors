@@ -113,19 +113,30 @@ ul { list-style: none; }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--forest-deep);
+  letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-h4 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+h1 { 
+  font-size: clamp(2.4rem, 1.5rem + 4.5vw, 4.2rem); 
+  line-height: 1.1;
+}
+h2 { 
+  font-size: clamp(1.8rem, 1rem + 3.5vw, 3rem); 
+}
+h3 { 
+  font-size: clamp(1.25rem, 0.8rem + 2vw, 1.85rem); 
+}
+h4 { 
+  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.4rem); 
+}
 
 p {
   color: var(--slate);
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
   max-width: 65ch;
+  line-height: 1.8;
 }
 
 /* ─── Utility ─── */
@@ -442,6 +453,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   opacity: 0.35;
 }
 
@@ -576,6 +588,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 8s var(--ease-smooth);
 }
 
@@ -600,6 +613,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 @keyframes float {
@@ -1755,6 +1769,10 @@ p {
    RESPONSIVE
    ═══════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
+  .navbar {
+    padding: var(--space-md) 0;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1822,15 +1840,35 @@ p {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 300px;
     height: 100vh;
-    background: var(--forest-deep);
+    background: rgba(26, 58, 42, 0.95);
+    backdrop-filter: blur(15px);
+    border-left: 4px solid var(--gold-primary);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 100px var(--space-2xl) var(--space-2xl);
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-5xl) var(--space-xl);
     gap: var(--space-xl);
     transition: right var(--duration-med) var(--ease-premium);
-    box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+    box-shadow: -15px 0 50px rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.2em !important;
+    text-align: center;
+  }
+
+  .nav-social {
+    margin-top: var(--space-lg);
+  }
+
+  .nav-cta {
+    margin-top: var(--space-lg);
+    width: 100%;
+    text-align: center;
   }
 
   .nav-links.open {
